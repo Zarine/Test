@@ -25,6 +25,9 @@ client.query("INSERT INTO table_name (id, data) VALUES ('123', '{}');", (err, re
 
 client.query("SELECT data FROM table_name WHERE id = '123';", (err, res) => {
   if (err) { console.log('select fail: ' + err); }
-  else { console.log('response:' + res); }
+  else { 
+    for (let row of res.rows) {
+      console.log(JSON.stringify(row));
+    }
   client.end();
 });
