@@ -19,11 +19,15 @@ client.query("CREATE TABLE table_name (id VARCHAR(25) UNIQUE PRIMARY KEY, data T
   if (err) console.log('la table existe deja');
 });
 
-client.query("INSERT INTO table_name (id, data) VALUES ('1234', '{ \"key\":\"123\", \"second\":\"456\"}');", (err, res) => {
+var data = {};
+data.key = "123";
+data.other = "bonjour";
+
+client.query("INSERT INTO table_name (id, data) VALUES ('12345', " + data + ");", (err, res) => {
   if (err) console.log('insert fail: ' + err);
 });
 
-client.query("SELECT data FROM table_name WHERE id = '1234';", (err, res) => {
+client.query("SELECT data FROM table_name WHERE id = '12345';", (err, res) => {
   if (err) { console.log('select fail: ' + err); }
   else { 
     for (let row of res.rows) {
