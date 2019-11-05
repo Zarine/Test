@@ -1,7 +1,7 @@
 //Initialisation
 
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const discordClient = new Discord.Client();
 const PREFIX = "!";
 
 
