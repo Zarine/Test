@@ -29,5 +29,6 @@ client.query("SELECT data FROM table_name WHERE id = '123';", (err, res) => {
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
     }
+  }
   client.end();
 });
