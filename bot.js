@@ -23,7 +23,7 @@ var data = {};
 data.key = "123";
 data.other = "bonjour";
 
-client.query("INSERT INTO table_name (id, data) VALUES ('12346', " + data + ");", (err, res) => {
+client.query("INSERT INTO table_name (id, data) VALUES ('12346', " + JSON.stringify(data) + ");", (err, res) => {
   if (err) console.log('insert fail: ' + err);
 });
 
