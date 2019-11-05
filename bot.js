@@ -23,7 +23,7 @@ client.query("INSERT INTO table_name (id, data) VALUES ('1234', '{ \"key\":\"123
   if (err) console.log('insert fail: ' + err);
 });
 
-client.query("SELECT data FROM table_name WHERE id = '123';", (err, res) => {
+client.query("SELECT data FROM table_name WHERE id = '1234';", (err, res) => {
   if (err) { console.log('select fail: ' + err); }
   else { 
     for (let row of res.rows) {
