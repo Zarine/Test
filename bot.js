@@ -16,9 +16,17 @@ const client = new Client({
 client.connect();
 
 client.query('CREATE TABLE table_name (id VARCHAR(25) UNIQUE PRIMARY KEY, data TEXT);', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
+  if (err) console.log('la table existe deja');
+  client.end();
+});
+
+client.query('INSERT INTO table_name (id, data) VALUES ("123", "{}");', (err, res) => {
+  if (err) console.log('insert fail');
+  client.end();
+});
+
+client.query('SELECT data FROM table_name WHERE id = "123";', (err, res) => {
+  if (err) console.log('select fail');
+  console.log('response:' + res);
   client.end();
 });
