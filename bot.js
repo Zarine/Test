@@ -19,7 +19,7 @@ client.query("CREATE TABLE table_name (id VARCHAR(25) UNIQUE PRIMARY KEY, data T
   if (err) console.log('la table existe deja');
 });
 
-client.query("INSERT INTO table_name (id, data) VALUES ('1234', '{ "key":"123", "second":"456"}');", (err, res) => {
+client.query("INSERT INTO table_name (id, data) VALUES ('1234', '{ \"key\":\"123\", \"second\":\"456\"}');", (err, res) => {
   if (err) console.log('insert fail: ' + err);
 });
 
