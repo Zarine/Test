@@ -17,12 +17,10 @@ client.connect();
 
 client.query("CREATE TABLE table_name (id VARCHAR(25) UNIQUE PRIMARY KEY, data TEXT);", (err, res) => {
   if (err) console.log('la table existe deja');
-  client.end();
 });
 
 client.query("INSERT INTO table_name (id, data) VALUES ('123', '{}');", (err, res) => {
   if (err) console.log('insert fail: ' + err);
-  client.end();
 });
 
 client.query("SELECT data FROM table_name WHERE id = '123';", (err, res) => {
