@@ -20,7 +20,7 @@ client.query("CREATE TABLE personnage (id VARCHAR(25) UNIQUE PRIMARY KEY, data J
 });
 
 async function get(id) {
-  const [row] = await db.query(
+  const [row] = await client.query(
     sql`
       SELECT data
       FROM personnage
@@ -30,7 +30,7 @@ async function get(id) {
   return row ? row.data : null;
 }
 async function set(id, value) {
-  await db.query(sql`
+  await client.query(sql`
     INSERT INTO personnage (id, data)
     VALUES (${id}, ${value})
     ON CONFLICT id
