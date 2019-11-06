@@ -28,11 +28,13 @@ client.query(insertQuery, (err, res) => {
   if (err) console.log('insert fail: ' + err);
 });
 
-client.query("SELECT data FROM personnage", (err, res) => {
+client.query("SELECT id, data FROM personnage", (err, res) => {
   if (err) { console.log('select fail: ' + err); }
   else { 
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
+      console.log(JSON.stringify(row.id));
+      console.log(JSON.stringify(row.data));
     }
   }
   client.end();
