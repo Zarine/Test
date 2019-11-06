@@ -7,6 +7,7 @@ const PREFIX = "!";
 console.log(`hello`);
 
 const { Client } = require('pg');
+import {sql} from '@databases/pg';
 
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
