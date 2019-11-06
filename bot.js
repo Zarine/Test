@@ -42,7 +42,7 @@ client.query("SELECT id, data FROM personnage", (err, res) => {
 
 test.key = "123456789"
 
-var updateQuery = "UPDATE personnage SET data = '" + test + "' WHERE id = '" + id + "';";
+var updateQuery = "UPDATE personnage SET data = '" + JSON.stringify(test) + "' WHERE id = '" + id + "';";
 client.query(updateQuery, (err, res) => {
   if (err) console.log('update fail: ' + err);
 });
