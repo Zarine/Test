@@ -38,5 +38,11 @@ client.query("SELECT id, data FROM personnage", (err, res) => {
       console.log(JSON.stringify(row.data));
     }
   }
-  client.end();
+});
+
+test.key = "123456789"
+
+var updateQuery = "UPDATE personnage SET data = '" + test + "' WHERE id = '" + id + "';);";
+client.query(updateQuery, (err, res) => {
+  if (err) console.log('insert fail: ' + err);
 });
