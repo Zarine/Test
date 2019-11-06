@@ -22,8 +22,9 @@ client.query("CREATE TABLE personnage (id VARCHAR(25) UNIQUE PRIMARY KEY, data J
 var test = {};
 test.key = "789";
 test.other = "hello";
+var id = "1234";
 
-var insertQuery = "INSERT INTO personnage (id, data) VALUES ('123', '" + JSON.stringify(test) + "');";
+var insertQuery = "INSERT INTO personnage (id, data) VALUES ('" + id + "', '" + JSON.stringify(test) + "');";
 client.query(insertQuery, (err, res) => {
   if (err) console.log('insert fail: ' + err);
 });
