@@ -20,20 +20,19 @@ client.query("CREATE TABLE personnage (id VARCHAR(25) UNIQUE PRIMARY KEY, data J
 });
 
 var data = {};
-data.key = "123";
-data.other = "bonjour";
+data.key = "456";
+data.other = "bye";
 
-var insertQuery = "INSERT INTO personnage (id, data) VALUES ('12347', '" + JSON.stringify(data) + "');";
+var insertQuery = "INSERT INTO personnage (id, data) VALUES ('123478', '" + JSON.stringify(data) + "');";
 client.query(insertQuery, (err, res) => {
   if (err) console.log('insert fail: ' + err);
 });
 
-client.query("SELECT data FROM personnage WHERE id = '12347';", (err, res) => {
+client.query("SELECT data FROM personnage", (err, res) => {
   if (err) { console.log('select fail: ' + err); }
   else { 
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
-      console.log(JSON.stringify(row.data));
     }
   }
   client.end();
