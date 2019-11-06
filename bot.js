@@ -23,12 +23,12 @@ var data = {};
 data.key = "123";
 data.other = "bonjour";
 
-var insertQuery = "INSERT INTO table_name (id, data) VALUES ('12347', '" + JSON.stringify(data) + "');";
+var insertQuery = "INSERT INTO personnage (id, data) VALUES ('12347', '" + JSON.stringify(data) + "');";
 client.query(insertQuery, (err, res) => {
   if (err) console.log('insert fail: ' + err);
 });
 
-client.query("SELECT data FROM table_name WHERE id = '12347';", (err, res) => {
+client.query("SELECT data FROM personnage WHERE id = '12347';", (err, res) => {
   if (err) { console.log('select fail: ' + err); }
   else { 
     for (let row of res.rows) {
