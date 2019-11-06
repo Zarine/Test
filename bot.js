@@ -19,11 +19,11 @@ client.query("CREATE TABLE personnage (id VARCHAR(25) UNIQUE PRIMARY KEY, data J
   if (err) console.log('la table existe deja');
 });
 
-var data = {};
-data.key = "456";
-data.other = "bye";
+var test = {};
+test.key = "789";
+test.other = "hello";
 
-var insertQuery = "INSERT INTO personnage (id, data) VALUES ('123478', '" + JSON.stringify(data) + "');";
+var insertQuery = "INSERT INTO personnage (id, data) VALUES ('123478', '" + JSON.stringify(test) + "');";
 client.query(insertQuery, (err, res) => {
   if (err) console.log('insert fail: ' + err);
 });
